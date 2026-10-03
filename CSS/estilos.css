@@ -1,0 +1,142 @@
+/* Variables: cambia los colores aquí y se actualiza toda la página */
+:root {
+  --fondo: #0f1b26;
+  --tarjeta: #162637;
+  --borde: #2b4057;
+  --texto: #eef0f2;
+  --suave: #9fb0c0;
+  --oro: #d4a94f;
+  --oro-claro: #ecd08a;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  color-scheme: dark; /* campos, barras y scroll se dibujan en modo oscuro */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.55;
+}
+
+/* Cabecera */
+.cabecera {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 1rem;
+}
+.cabecera h1 {
+  margin: 0 0 .25rem;
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: var(--oro);
+}
+.cabecera p { margin: 0; color: var(--suave); }
+
+/* Contenido */
+.contenido {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.tarjeta h2 {
+  margin-top: 0;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+}
+
+/* El código: la pieza protagonista, como una placa dorada */
+.codigo {
+  display: inline-block;
+  margin: .25rem 0 1rem;
+  padding: .3rem 1rem;
+  border: 1px solid var(--oro);
+  border-radius: 8px;
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: .35rem;
+  color: var(--oro);
+}
+
+.qr {
+  display: inline-block;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  background: #fff; /* el QR necesita fondo blanco para leerse bien */
+  border-radius: 8px;
+}
+
+.fila { display: flex; gap: .5rem; }
+
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  padding: .7rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: var(--fondo);
+  color: var(--texto);
+  font-size: 1rem;
+}
+input[type="text"]::placeholder { color: var(--suave); }
+
+button {
+  padding: .7rem 1.2rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--oro);
+  color: var(--fondo);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { background: var(--oro-claro); }
+button:disabled { background: var(--borde); color: var(--suave); cursor: not-allowed; }
+#btn-enviar { margin-top: 1rem; }
+
+:focus-visible { outline: 3px solid var(--oro-claro); outline-offset: 2px; }
+
+.estado { color: var(--suave); margin-bottom: 0; }
+
+/* Zona para soltar archivos */
+.zona-soltar {
+  display: block;
+  padding: 2.5rem 1rem;
+  border: 2px dashed var(--oro);
+  border-radius: 10px;
+  text-align: center;
+  color: var(--oro-claro);
+  cursor: pointer;
+}
+.zona-soltar:hover { background: rgba(212, 169, 79, .08); }
+.zona-soltar.arrastrando { background: rgba(212, 169, 79, .16); border-style: solid; }
+
+/* Listas */
+.lista { list-style: none; padding: 0; margin: 1rem 0 0; }
+.lista li { padding: .6rem 0; border-bottom: 1px solid var(--borde); }
+.lista li:last-child { border-bottom: 0; }
+.lista a { color: var(--oro-claro); }
+.vacio { color: var(--suave); }
+
+/* Barras de progreso */
+progress { accent-color: var(--oro); }
+.barra { width: 100%; height: 1rem; margin-top: .5rem; }
+.lista progress { display: block; width: 100%; margin-top: .3rem; }
+
+/* Pie de página */
+.pie { text-align: center; color: var(--suave); padding: 1.5rem 1rem 2.5rem; }
+.pie p { margin: .25rem 0; }
+.apoyo strong { color: var(--oro); letter-spacing: .05em; }

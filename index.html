@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f1b26">
+  <title>Mi Transferencia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- Cabecera -->
+  <header class="cabecera">
+    <h1>Mi Transferencia</h1>
+    <p>Envía archivos de tu PC al celular, sin límites.</p>
+  </header>
+
+  <main class="contenido">
+
+    <!-- Sección 1: conectar dispositivos -->
+    <section class="tarjeta" id="conexion">
+      <h2>Conectar dispositivos</h2>
+      <p>Tu código es:</p>
+      <p class="codigo" id="mi-codigo">------</p>
+      <p>O escanea este QR desde el otro dispositivo:</p>
+      <div class="qr" id="qr"></div>
+      <p>Escribe el código del otro dispositivo:</p>
+      <div class="fila">
+        <input type="text" id="codigo-destino" placeholder="Código del otro dispositivo">
+        <button type="button" id="btn-conectar">Conectar</button>
+      </div>
+      <p class="estado" id="estado">Sin conexión</p>
+    </section>
+
+    <!-- Sección 2: enviar archivos -->
+    <section class="tarjeta" id="envio">
+      <h2>Enviar archivos</h2>
+      <label class="zona-soltar" for="selector-archivos" id="zona-soltar">
+        <span>Arrastra archivos aquí o toca para elegir</span>
+      </label>
+      <input type="file" id="selector-archivos" multiple hidden>
+      <ul class="lista" id="lista-envios"></ul>
+      <button type="button" id="btn-enviar">Enviar archivos</button>
+      <p class="estado" id="texto-envio" hidden></p>
+      <progress class="barra" id="barra-envio" value="0" max="100" hidden></progress>
+    </section>
+
+    <!-- Sección 3: archivos recibidos -->
+    <section class="tarjeta" id="recibidos">
+      <h2>Archivos recibidos</h2>
+      <ul class="lista" id="lista-recibidos">
+        <li class="vacio">Aún no has recibido nada.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p class="apoyo">Apoyos Nequi: <strong>3043705792</strong></p>
+    <p>Proyecto para aprender HTML, CSS y JavaScript.</p>
+  </footer>
+
+  <!-- Scripts: primero la librería PeerJS, luego los nuestros -->
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/conexion.js"></script>
+  <script src="js/archivos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
